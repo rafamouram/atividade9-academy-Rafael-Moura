@@ -86,13 +86,16 @@ describe("Primeiro teste", () => {
         expect(message).toBe("You selected: 3 , Command four");
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'List Dialog'", async() => {
+    xit("Testando o comando 'Hide and Show' em 'Fragment'", async() => {
         await $("accessibility id=App").click();
-        await $("accessibility id=Alert Dialogs").click();
+        await $("accessibility id=Fragment").click();
         await $("accessibility id=List dialog").click();
-        const modal = await $("id = android:id/alertTitle").getText();
-        expect(modal).toBe("Header title");
-        const comando = await $("resource-id = android:id/text1").index(4);
+        await $("accessibility id=Hide and Show").click();
+        const hide1 = await $("id = io.appium.android.apis:id/frag1hide");
+        const show1 = await $("id = io.appium.android.apis:id/frag1show");
+        const editTexto = await $("class = android.widget.EditText");
+        expect(hide1).isDisplayed().toBe(true);
+
         const comandoTexto = await $(comando).getText();
         expect(comandoTexto).toBe("Command four");
         await $(comando).click();
@@ -100,7 +103,8 @@ describe("Primeiro teste", () => {
         expect(message).toBe("You selected: 3 , Command four");
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_HOME_AS_UP'", async() => {
+
+    xit("Testando o comando 'DISPLAY_HOME_AS_UP' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
@@ -112,7 +116,7 @@ describe("Primeiro teste", () => {
         expect(displayText).toBe(true);
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_HOME_AS_UP'", async() => {
+    xit("Testando o comando 'DISPLAY_HOME_AS_UP' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
@@ -124,7 +128,7 @@ describe("Primeiro teste", () => {
         expect(displayText).toBe(true);
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_SHOW_HOME'", async() => {
+    xit("Testando o comando 'DISPLAY_SHOW_HOME' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
@@ -136,7 +140,7 @@ describe("Primeiro teste", () => {
         expect(displayText).toBe(true);
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_USE_LOGO'", async() => {
+    xit("Testando o comando 'DISPLAY_USE_LOGO' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
@@ -156,7 +160,7 @@ describe("Primeiro teste", () => {
         expect(displayBounds).toBe("[42,63][210,210]");
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_SHOW_TITLE'", async() => {
+    xit("Testando o comando 'DISPLAY_SHOW_TITLE' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
@@ -168,7 +172,7 @@ describe("Primeiro teste", () => {
         expect(displayText).toBe(true);
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_SHOW_CUSTOM'", async() => {
+    xit("Testando o comando 'DISPLAY_SHOW_CUSTOM' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
@@ -180,7 +184,7 @@ describe("Primeiro teste", () => {
         expect(displayText).toBe(true);
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'Navigation'", async() => {
+    xit("Testando o comando 'Navigation' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
@@ -199,7 +203,7 @@ describe("Primeiro teste", () => {
         expect(actionTab3).toBe("TAB 3");
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'Cycle Custom View Gravity'", async() => {
+    xit("Testando o comando 'Cycle Custom View Gravity' em 'Action Bar/Display options'", async() => {
         await $("accessibility id=App").click();
         await $("accessibility id=Actio Bar").click();
         await $("accessibility id=Display options").click();
