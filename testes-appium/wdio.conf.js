@@ -55,7 +55,7 @@ exports.config = {
     capabilities: [{
         platformName: "Android",
         app: path.join(__dirname, "app", "apidemos.apk"),
-        appPackage: "com.example.apidemos", //nome do pacote do App
+        //appPackage: "com.example.apidemos", //nome do pacote do App
         automationName: "UiAutomator2",
         path: "/wd/hub"
     }],
@@ -107,7 +107,6 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['appium'],
-    appium: { command: 'appium' },
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
