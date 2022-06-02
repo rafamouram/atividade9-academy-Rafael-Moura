@@ -3,14 +3,12 @@ describe("Primeiro teste", () => {
         driver.reset();
     });
 
-    xit("Verificar o botão ok na opção: OK CANCEL DIALOG WITH MESSAGE;", async() => {
+    it("Verificar o botão ok na opção: OK CANCEL DIALOG WITH MESSAGE;", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Alert Dialogs").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("OK CANCEL DIALOG WITH A MESSAGE").className("android.widget.Button")').click();
         var visibilidadeModal = await $('android=new UiSelector().resourceId("android:id/alertTitle").className("android.widget.TextView")').isDisplayed();
         expect(visibilidadeModal).toBe(true);
-        // const visibiidadeTexto = await $('android=new UiSelector().text("Lorem ipsum dolor sit aie consectetur adipiscing")').isDisplayed();
-        // expect(visibiidadeTexto).toBe(true);
         const botaoOk = await $('android=new UiSelector().resourceId("android:id/button1").className("android.widget.Button")').getText();
         expect(botaoOk).toBe("OK");
         await $('android=new UiSelector().resourceId("android:id/button1").className("android.widget.Button")').click();
@@ -18,15 +16,12 @@ describe("Primeiro teste", () => {
         expect(visibilidadeModal).toBe(false);
     });
 
-    xit("Verificar o botão cancel na opção: OK CANCEL DIALOG WITH MESSAGE;", async() => {
+    it("Verificar o botão cancel na opção: OK CANCEL DIALOG WITH MESSAGE;", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Alert Dialogs").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("OK CANCEL DIALOG WITH A MESSAGE").className("android.widget.Button")').click();
         var visibilidadeModal = await $('android=new UiSelector().resourceId("android:id/alertTitle").className("android.widget.TextView")').isDisplayed();
         expect(visibilidadeModal).toBe(true);
-        // const texto = await $('android=new UiSelector().text("Lorem ipsum dolor sit aie consectetur adipiscing Plloaso mako nuto siwuf cakso dodtos anr koop.")');
-        // const visibiidadeTexto = await $(texto).isDisplayed();
-        // expect(visibiidadeTexto).toBe(true);
         const botaoCancel = await $('android=new UiSelector().resourceId("android:id/button2").className("android.widget.Button")').getText();
         expect(botaoCancel).toBe("CANCEL");
         await $('android=new UiSelector().resourceId("android:id/button2").className("android.widget.Button")').click();
@@ -34,7 +29,7 @@ describe("Primeiro teste", () => {
         expect(visibilidadeModal).toBe(false);
     });
 
-    xit("Deve ser possível escolher o 'Command one' em 'List Dialog'", async() => {
+    it("Deve ser possível escolher o 'Command one' em 'List Dialog'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Alert Dialogs").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("LIST DIALOG").className("android.widget.Button")').click();
@@ -43,11 +38,11 @@ describe("Primeiro teste", () => {
         var comando = await $('android=new UiSelector().text("Command one").className("android.widget.TextView")').getText();
         expect(comando).toBe("Command one");
         var comando = await $('android=new UiSelector().text("Command one").className("android.widget.TextView")').click();
-        const message = await $('android=new UiSelector().resourceId("android:id/message").className("android.widget.TextView")').click();
+        const message = await $('android=new UiSelector().resourceId("android:id/message").className("android.widget.TextView")').getText();
         expect(message).toBe("You selected: 0 , Command one");
     });
 
-    xit("Deve ser possível escolher o 'Command two' em 'List Dialog'", async() => {
+    it("Deve ser possível escolher o 'Command two' em 'List Dialog'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Alert Dialogs").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("LIST DIALOG").className("android.widget.Button")').click();
@@ -60,7 +55,7 @@ describe("Primeiro teste", () => {
         expect(message).toBe("You selected: 1 , Command two");
     });
 
-    xit("Deve ser possível escolher o 'Command three' em 'List Dialog'", async() => {
+    it("Deve ser possível escolher o 'Command three' em 'List Dialog'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Alert Dialogs").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("LIST DIALOG").className("android.widget.Button")').click();
@@ -73,7 +68,7 @@ describe("Primeiro teste", () => {
         expect(message).toBe("You selected: 2 , Command three");
     });
 
-    xit("Deve ser possível escolher o 'Command four' em 'List Dialog'", async() => {
+    it("Deve ser possível escolher o 'Command four' em 'List Dialog'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Alert Dialogs").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("LIST DIALOG").className("android.widget.Button")').click();
@@ -86,7 +81,7 @@ describe("Primeiro teste", () => {
         expect(message).toBe("You selected: 3 , Command four");
     });
 
-    xit("Testando o comando 'DISPLAY_HOME_AS_UP' em 'Action Bar/Display options'", async() => {
+    it("Testando o comando 'DISPLAY_HOME_AS_UP' em 'Action Bar/Display options'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Action Bar").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Display Options").className("android.widget.TextView")').click();
@@ -95,7 +90,7 @@ describe("Primeiro teste", () => {
         expect(display).toBe(true);
     });
 
-    xit("Testando o comando 'DISPLAY_SHOW_HOME' em 'Action Bar/Display options'", async() => {
+    it("Testando o comando 'DISPLAY_SHOW_HOME' em 'Action Bar/Display options'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Action Bar").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Display Options").className("android.widget.TextView")').click();
@@ -104,7 +99,7 @@ describe("Primeiro teste", () => {
         expect(display).toBe(true);
     });
 
-    xit("Testando o comando 'DISPLAY_USE_LOGO' em 'Action Bar/Display options'", async() => {
+    it("Testando o comando 'DISPLAY_USE_LOGO' em 'Action Bar/Display options'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Action Bar").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Display Options").className("android.widget.TextView")').click();
@@ -123,7 +118,7 @@ describe("Primeiro teste", () => {
         expect(displayBounds).toStrictEqual({ "x": 42, "y": 63 });
     });
 
-    xit("Testando o comando 'DISPLAY_SHOW_TITLE' em 'Action Bar/Display options'", async() => {
+    it("Testando o comando 'DISPLAY_SHOW_TITLE' em 'Action Bar/Display options'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Action Bar").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Display Options").className("android.widget.TextView")').click();
@@ -134,7 +129,7 @@ describe("Primeiro teste", () => {
         expect(display).toBe(false);
     });
 
-    xit("Testando o comando 'DISPLAY_SHOW_CUSTOM' em 'Action Bar/Display options'", async() => {
+    it("Testando o comando 'DISPLAY_SHOW_CUSTOM' em 'Action Bar/Display options'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Action Bar").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Display Options").className("android.widget.TextView")').click();
@@ -145,7 +140,7 @@ describe("Primeiro teste", () => {
         expect(display).toBe(true);
     });
 
-    xit("Testando o comando 'Navigation' em 'Action Bar/Display options'", async() => {
+    it("Testando o comando 'Navigation' em 'Action Bar/Display options'", async() => {
         await $('android=new UiSelector().text("App").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Action Bar").className("android.widget.TextView")').click();
         await $('android=new UiSelector().text("Display Options").className("android.widget.TextView")').click();
