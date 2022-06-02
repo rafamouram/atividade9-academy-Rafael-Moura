@@ -4,12 +4,13 @@ describe("Primeiro teste", () => {
         await $("accessibility id=Alert Dialogs").click();
         await $("accessibility id=OK Cancel dialog with a message").click();
         const visibilidadeModal = await $("class = 	android.widget.FrameLayout").isDisplayed();
-        expect(visibilidadeModal).toBe(false);
+        expect(visibilidadeModal).toBe(true);
         const texto = await $('android=new UiSelector().text("Lorem ipsum dolor sit aie consectetur adipiscing Plloaso mako nuto siwuf cakso dodtos anr koop.")');
         const visibiidadeTexto = await $(texto).isDisplayed();
         expect(visibiidadeTexto).toBe(true);
-        const botaoCancel = await $("id = android:id/button1").getText();
-        expect(botaoCancel).toBe("OK");
+        const botaoOk = await $("id = android:id/button1").getText();
+        expect(botaoOk).toBe("OK");
+        await $(botaoOk).click();
         expect(visibilidadeModal).toBe(false);
     });
 
@@ -18,35 +19,210 @@ describe("Primeiro teste", () => {
         await $("accessibility id=Alert Dialogs").click();
         await $("accessibility id=OK Cancel dialog with a message").click();
         const visibilidadeModal = await $("class = 	android.widget.FrameLayout").isDisplayed();
-        expect(visibilidadeModal).toBe(false);
+        expect(visibilidadeModal).toBe(true);
         const texto = await $('android=new UiSelector().text("Lorem ipsum dolor sit aie consectetur adipiscing Plloaso mako nuto siwuf cakso dodtos anr koop.")');
         const visibiidadeTexto = await $(texto).isDisplayed();
         expect(visibiidadeTexto).toBe(true);
         const botaoCancel = await $("id = android:id/button2").getText();
         expect(botaoCancel).toBe("CANCEl");
+        await $(botaoCancel).click();
         expect(visibilidadeModal).toBe(false);
     });
 
 
-    xit("Deve ser possível selecionar o gênero 'Action'", async() => {
-        await $("id=filter_image_button").click();
-        await $('android=new UiSelector().text("Action").className("android.widget.TextView")').click();
-        await $("id=poster_image_view").click();
-        const textoTitulo = await $("id=title_text_view").getText();
-        expect(textoTitulo).toBe("Top Gun: Maverick");
-
-        //verificar se um filme de ação foi exibido na tela de detalhe de filme
+    xit("Deve ser possível escolher o 'Command one' em 'List Dialog'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Alert Dialogs").click();
+        await $("accessibility id=List dialog").click();
+        const modal = await $("id = android:id/alertTitle").getText();
+        expect(modal).toBe("Header title");
+        const comando = await $("resource-id = android:id/text1").index(1);
+        const comandoTexto = await $(comando).getText();
+        expect(comandoTexto).toBe("Command one");
+        await $(comando).click();
+        const message = await $("resource-id = android:id/message").getText();
+        expect(message).toBe("You selected: 0 , Command one");
     });
 
-    xit("Deve ser possível verificar se a tela exibe a quantidade de estrelas do filme", async() => {
-        await $("id=filter_image_button").click();
-        await $('android=new UiSelector().text("Action").className("android.widget.TextView")').click();
-        await $("id=poster_image_view").click();
-        const visibilidadeEstrelas = await $("id=vote_average_rating_bar").isDisplayed();
-        expect(visibilidadeEstrelas).toBe(true);
-        const notaFilme = await $("id=vote_average_rating_bar").getAttribute("text");
-        expect(notaFilme).toBe("8.0");
-        //verificar se após exibir o detalhe de um filme, a quantidade de estrelas é exibida.
+    xit("Deve ser possível escolher o 'Command two' em 'List Dialog'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Alert Dialogs").click();
+        await $("accessibility id=List dialog").click();
+        const modal = await $("id = android:id/alertTitle").getText();
+        expect(modal).toBe("Header title");
+        const comando = await $("resource-id = android:id/text1").index(2);
+        const comandoTexto = await $(comando).getText();
+        expect(comandoTexto).toBe("Command two");
+        await $(comando).click();
+        const message = await $("resource-id = android:id/message").getText();
+        expect(message).toBe("You selected: 1 , Command two");
+    });
+
+    xit("Deve ser possível escolher o 'Command three' em 'List Dialog'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Alert Dialogs").click();
+        await $("accessibility id=List dialog").click();
+        const modal = await $("id = android:id/alertTitle").getText();
+        expect(modal).toBe("Header title");
+        const comando = await $("resource-id = android:id/text1").index(3);
+        const comandoTexto = await $(comando).getText();
+        expect(comandoTexto).toBe("Command three");
+        await $(comando).click();
+        const message = await $("resource-id = android:id/message").getText();
+        expect(message).toBe("You selected: 2 , Command three");
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'List Dialog'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Alert Dialogs").click();
+        await $("accessibility id=List dialog").click();
+        const modal = await $("id = android:id/alertTitle").getText();
+        expect(modal).toBe("Header title");
+        const comando = await $("resource-id = android:id/text1").index(4);
+        const comandoTexto = await $(comando).getText();
+        expect(comandoTexto).toBe("Command four");
+        await $(comando).click();
+        const message = await $("resource-id = android:id/message").getText();
+        expect(message).toBe("You selected: 3 , Command four");
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'List Dialog'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Alert Dialogs").click();
+        await $("accessibility id=List dialog").click();
+        const modal = await $("id = android:id/alertTitle").getText();
+        expect(modal).toBe("Header title");
+        const comando = await $("resource-id = android:id/text1").index(4);
+        const comandoTexto = await $(comando).getText();
+        expect(comandoTexto).toBe("Command four");
+        await $(comando).click();
+        const message = await $("resource-id = android:id/message").getText();
+        expect(message).toBe("You selected: 3 , Command four");
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_HOME_AS_UP'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("id = Navigate up");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_HOME_AS_UP").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_HOME_AS_UP'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("id = Navigate up");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_HOME_AS_UP").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_SHOW_HOME'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("class = android.widget.ImageView");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_SHOW_HOME").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_USE_LOGO'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("class = android.widget.ImageView");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_USE_LOGO").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_SHOW_HOME").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+        displayBounds = await $(display).displayBounds();
+        expect(displayBounds).toBe("[42,93][534,179]");
+        await $("accessibility id=DISPLAY_USE_LOGO").click();
+        displayBounds = await $(display).displayBounds();
+        expect(displayBounds).toBe("[42,63][210,210]");
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_SHOW_TITLE'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("class = android.widget.TextView");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_SHOW_TITLE").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'DISPLAY_SHOW_CUSTOM'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("accessibility id = Custom View!");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_SHOW_CUSTOM").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'Navigation'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("class = android.widget.LinearLayout");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id = Navigation").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+        const actionTab = await $("class = android.widget.LinearLayout");
+        var actionTab1 = await $(actionTab).index(0).getText;
+        expect(actionTab1).toBe("TAB 1");
+        var actionTab2 = await $(actionTab).index(1).getText;
+        expect(actionTab2).toBe("TAB 2");
+        var actionTab3 = await $(actionTab).index(2).getText;
+        expect(actionTab3).toBe("TAB 3");
+    });
+
+    xit("Deve ser possível escolher o 'Command four' em 'Cycle Custom View Gravity'", async() => {
+        await $("accessibility id=App").click();
+        await $("accessibility id=Actio Bar").click();
+        await $("accessibility id=Display options").click();
+        const display = await $("accessibility id = Custom View!");
+        var displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=Cycle Custom View Gravity").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(false);
+        await $("accessibility id=DISPLAY_SHOW_CUSTOM").click();
+        displayView = await $(display).isDisplayed();
+        expect(displayText).toBe(true);
+        displayBounds = await $(display).displayBounds();
+        expect(displayBounds).toBe("[647,73][965,199]");
+        await $("accessibility id=Cycle Custom View Gravity").click();
+        displayBounds = await $(display).displayBounds();
+        expect(displayBounds).toBe("[647,73][965,199]");
+        await $("accessibility id=Cycle Custom View Gravity").click();
+        displayBounds = await $(display).displayBounds();
+        expect(displayBounds).toBe("[657,73][975,199]");
+        await $("accessibility id=Cycle Custom View Gravity").click();
+        displayBounds = await $(display).displayBounds();
+        expect(displayBounds).toBe("[647,73][965,199]");
     });
 
 });
